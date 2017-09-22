@@ -1,1 +1,224 @@
 @import "common";
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+header {
+  margin: 30px;
+}
+
+.sort-list {
+  display: flex;
+  list-style-type: none;
+  width: 100%;
+  border-bottom: 1px solid #D4D4D4;
+  height: 40px;
+  line-height: 40px;
+
+  li {
+
+    font-size: 14px;
+    color: #a4a4a4;
+    text-transform: uppercase;
+
+    &.sort {
+      color: #4a86cc;
+      cursor: pointer;
+    }
+
+    &:nth-of-type(1) {
+      width: 420px;
+    }
+    &:nth-of-type(2) {
+      width: 120px;
+    }
+    &:nth-of-type(3) {
+      width: 165px;
+    }
+    &:nth-of-type(4) {
+      width: 195px;
+    }
+    &:nth-of-type(5) {
+      width: 280px;
+    }
+
+    &.asc::after {
+      content: '';
+      width: 9px;
+      height: 9px;
+      background: url(/img/up.svg) center top no-repeat;
+      display: inline-block;
+    }
+
+    &.desc::after {
+      content: '';
+      width: 9px;
+      height: 9px;
+      background: url(/img/down.svg) center top no-repeat;
+      display: inline-block;
+    }
+  }
+}
+
+.list {
+  width: 1180px;
+  display: flex;
+  list-style-type: none;
+
+  .line {
+    width: 100%;
+    border-bottom: 1px solid #D4D4D4;
+
+    .inner {
+      border: 1px solid red;
+      height: 200px;
+      display: flex;
+
+    }
+
+    .display{
+
+      margin-top: 30px;
+      margin-left: 20px;
+      display: none;
+
+      span{
+
+        color: #333333;
+        font-size: 20px;
+      }
+
+      p{
+
+      }
+    }
+
+    .train {
+      background: url(/img/ut-coupe-map-info-gs.png);
+      width: 618px;
+      height: 100px;
+      overflow: auto;
+
+      .train-list {
+        width: 458px;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        height: 43px;
+        margin: 17px 0 0 96px;
+
+        li {
+          width: 19px;
+          height: 19px;
+          display: block;
+          font-size: 10px;
+          font-weight: bold;
+          margin-right: 2px;
+          background: #7d777b;
+          color:#fff;
+          line-height: 19px;
+          text-align: center;
+          cursor: pointer;
+          user-select: none;
+
+          &.occupied{
+            background: #c4bac0;
+            cursor: default;
+          }
+          &.selected{
+            background: #0d8fd3;
+            border-top: 2px solid #fcbe4f !important;
+            line-height: 17px;
+          }
+
+          &:nth-of-type(even){
+            border-color: #999;
+            margin-bottom: 5px;
+          }
+
+          &:nth-of-type(4n){
+
+          }
+
+          &:nth-of-type(4n-1){
+
+            margin-right: 6px;
+          }
+
+        }
+
+      }
+
+    }
+
+    .item {
+      width: 100%;
+      height: 73px;
+      line-height: 73px;
+      display: flex;
+
+      .number {
+        width: 50px;
+        font-size: 12px;
+        color: #8a8a8a;
+      }
+      .name {
+        width: 370px;
+        line-height: 20px;
+        padding-top: 20px;
+
+        color: #4F81B2;
+
+        span {
+          display: block;
+          font-size: 12px;
+          color: #333333;
+        }
+      }
+      .count {
+        width: 120px;
+      }
+      .output {
+        width: 165px;
+      }
+      .input {
+        width: 195px;
+      }
+      .mesto {
+        width: 165px;
+      }
+      .btn {
+        width: 115px;
+
+        .buy {
+          width: 100%;
+          height: 36px;
+          line-height: 34px;
+          border-radius: 5px;
+          border: 1px solid #4F81B2;
+          color: #557491;
+          display: inline-block;
+          text-align: center;
+          font-size: 14px;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+

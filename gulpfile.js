@@ -4,13 +4,13 @@ const browserSync = require('browser-sync').create();
 //const replace = require('gulp-replace');
 //const inject = require('gulp-inject');
 const cssmin = require('gulp-cssmin');
-//const concatCss = require('gulp-concat-css');
+const concatCss = require('gulp-concat-css');
 const imagemin = require('gulp-imagemin');
 const jpegoptim = require('imagemin-jpegoptim');
 const imageminSvgo = require('imagemin-svgo');
 const imageminOptipng = require('imagemin-optipng');
 const uglify = require('gulp-uglify');
-//const concat = require('gulp-concat');
+const concat = require('gulp-concat');
 
 
 var config = {
