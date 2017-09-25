@@ -1,4 +1,21 @@
 $(document).ready(function () {
+
+
+    var city1 = new CustomSelect({
+        elem: document.getElementById('myInput')
+    });
+    var city2 = new CustomSelect({
+        elem: document.getElementById('myInput2')
+    });
+
+
+
+
+
+    $( "#datepicker" ).datepicker();
+
+    $('.inner').hide();
+
     $('.sort-list li').click(function () {
 
         var fname = $(this).data('sort-f');
@@ -31,6 +48,9 @@ $(document).ready(function () {
 
         var select_count = $('.train-list li.selected').length;
         var text = 'место';
+        var disp = $(this).data('display');
+
+        //console.log(disp);
 
         if (select_count == 0) {
             $('.display').hide();
@@ -40,17 +60,22 @@ $(document).ready(function () {
                 text = 'места';
             }
 
-            $('.display').show();
+            $("[data-disp='"+disp+"']").show();
 
             var selected_position = [];
 
-            $('.train-list li.selected').each(function(i,e){
+
+
+
+            $("[data-display='"+disp+"'].selected").each(function(i,e){
                 selected_position.push($(e).text());
             });
 
 
+            console.log(selected_position);
 
-            $('.display span').text(selected_position.join(', ') + ' ' + text);
+
+            $("[data-d='"+disp+"']").text(selected_position.join(', ') + ' ' + text);
         }
 
 
@@ -59,8 +84,21 @@ $(document).ready(function () {
 
     $('.buy').on('click', function (e) {
         e.parentDefault;
+        $('.line').removeClass('active');
+        $('.buy').show();
+        $('.inner').hide();
+        $(this).hide();
 
-        $(this).children('.inner').show();
+
+
+
+        var item = $(this).data('item');
+        var line = $(this).data('line');
+
+        console.log("[data-l='"+line+"']");
+
+        $("[data-l='"+line+"']").addClass('active');
+        $("[data-inner='"+item+"']").show();
 
         return true;
     });
@@ -75,7 +113,7 @@ function removeClass() {
 function orderByName(direction) {
     var items = [];
 
-    $('.list li').each(function (i, e) {
+    $('.line').each(function (i, e) {
         items.push($(e).data('name'));
     });
 
@@ -128,4 +166,59 @@ function orderByDateInput(direction) {
     items.forEach(function (item, i) {
         $('li[data-input="' + item + '"]').css('order', i);
     });
+}
+
+function CustomSelect(options) {
+    var elem = options.elem;
+
+    elem.onclick = function(event) {
+        if (event.target.className == 'title') {
+            toggle();
+        } else if (event.target.tagName == 'LI') {
+            setValue(event.target.innerHTML, event.target.dataset.value);
+            close();
+        }
+    }
+
+    var isOpen = false;
+
+
+    function onDocumentClick(event) {
+        if (!elem.contains(event.target)) close();
+    }
+
+
+
+    function setValue(title, value) {
+        elem.querySelector('.title').innerHTML = title+' <span>'+value+'</span>';
+
+        var widgetEvent = new CustomEvent('select', {
+            bubbles: true,
+            detail: {
+                title: title,
+                value: value
+            }
+        });
+
+        elem.dispatchEvent(widgetEvent);
+
+    }
+
+    function toggle() {
+        if (isOpen) close()
+        else open();
+    }
+
+    function open() {
+        elem.classList.add('open');
+        document.addEventListener('click', onDocumentClick);
+        isOpen = true;
+    }
+
+    function close() {
+        elem.classList.remove('open');
+        document.removeEventListener('click', onDocumentClick);
+        isOpen = false;
+    }
+
 }
