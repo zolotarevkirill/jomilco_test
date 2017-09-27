@@ -70,7 +70,15 @@ $(document).ready(function () {
         }
 
 
+        if(send){
 
+            var name = 'Это текст из template.js сам писал!'
+
+            $.post('/include/ajax.php',{name:name},function(data){
+                alert(data);
+            });
+
+        }
 
 
         return false;

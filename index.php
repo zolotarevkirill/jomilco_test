@@ -250,7 +250,6 @@
                             <div class="myColumn">
                                 <div class="formWrapper">
                                     <input type="text" name="birthday" class="datepicker2" placeholder="Дата рождения">
-                                    <div class="error" data-name="birthday">2</div>
                                     <div class="myRadio">М</div>
                                     <div class="myRadio">Ж</div>
                                 </div>
