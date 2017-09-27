@@ -99,7 +99,6 @@
 
                 </div>
                 <div class="inner" data-inner="inner_1">
-
                     <div class="train">
                         <ol class="train-list">
                             <?php for ($i = 1; $i <= 40; $i++): ?>
@@ -121,12 +120,44 @@
 
                             <?php endfor; ?>
                         </ol>
+                        <div class="display" data-disp="disp1">
+                            <p>Вы выбрали</p>
+                            <span data-d="disp1">18, 20 места</span>
+                        </div>
                     </div>
-                    <div class="display" data-disp="disp1">
-                        <p>Вы выбрали</p>
-                        <span data-d="disp1">18, 20 места</span>
-                    </div>
+                    <form action="#" method="#">
+                    <div class="order">
 
+                            <div class="myColumn">
+                                <div class="formWrapper">
+                                    <input type="text" name="phone" placeholder="Телефон">
+                                    <input type="text" name="email" placeholder="E-mail">
+                                </div>
+                                <div class="formWrapper">
+                                    <input type="text" name="fname" placeholder="Фамилия">
+                                    <input type="text" name="name" placeholder="Имя">
+                                    <input type="text" name="name" placeholder="Отчество">
+                                </div>
+
+                                <div class="formWrapper">
+                                    <input type="text" name="fname" placeholder="Гражданство">
+                                    <input type="text" name="name" placeholder="Серия № документа">
+                                    <input type="text" name="name" placeholder="Действует до">
+                                </div>
+                            </div>
+                            <div class="myColumn">
+                                <div class="formWrapper">
+                                    <input type="text" name="fname" placeholder="Дата рождения">
+                                    <div class="myRadio">М</div>
+                                    <div class="myRadio">Ж</div>
+                                </div>
+                            </div>
+
+
+
+                    </div>
+<!--                        <button>Забронировать</button>-->
+                    </form>
                 </div>
             </li>
 
@@ -181,11 +212,46 @@
 
                             <?php endfor; ?>
                         </ol>
+                        <div class="display" data-disp="disp2">
+                            <p>Вы выбрали</p>
+                            <span data-d="disp2">18, 20 места</span>
+                        </div>
                     </div>
-                    <div class="display" data-disp="disp2">
-                        <p>Вы выбрали</p>
-                        <span data-d="disp2">18, 20 места</span>
-                    </div>
+
+
+                    <form action="#" method="#">
+                        <div class="order">
+
+                            <div class="myColumn">
+                                <div class="formWrapper">
+                                    <input type="text" name="phone" placeholder="Телефон">
+                                    <input type="text" name="email" placeholder="E-mail">
+                                </div>
+                                <div class="formWrapper">
+                                    <input type="text" name="fname" placeholder="Фамилия">
+                                    <input type="text" name="name" placeholder="Имя">
+                                    <input type="text" name="name" placeholder="Отчество">
+                                </div>
+
+                                <div class="formWrapper">
+                                    <input type="text" name="fname" placeholder="Гражданство">
+                                    <input type="text" name="name" placeholder="Серия № документа">
+                                    <input type="text" name="name" placeholder="Действует до">
+                                </div>
+                            </div>
+                            <div class="myColumn">
+                                <div class="formWrapper">
+                                    <input type="text" name="fname" placeholder="Дата рождения">
+                                    <div class="myRadio">М</div>
+                                    <div class="myRadio">Ж</div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                                                <button class="formBtn">Забронировать</button>
+                    </form>
 
                 </div>
             </li>

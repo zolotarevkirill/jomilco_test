@@ -43,6 +43,13 @@ $(document).ready(function () {
     });
 
 
+    $('.myRadio').click(function(){
+        $('.myRadio').removeClass('selected');
+        $(this).addClass('selected');
+    });
+
+
+
     $('.train-list li:not(.occupied)').click(function () {
         $(this).toggleClass('selected');
 
