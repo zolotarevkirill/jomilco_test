@@ -9,10 +9,8 @@ $(document).ready(function () {
     });
 
 
-
-
-
-    $( "#datepicker" ).datepicker();
+    $("#datepicker").datepicker();
+    $(".datepicker2").datepicker();
 
     $('.inner').hide();
 
@@ -43,11 +41,40 @@ $(document).ready(function () {
     });
 
 
-    $('.myRadio').click(function(){
+    $('.myRadio').click(function () {
         $('.myRadio').removeClass('selected');
         $(this).addClass('selected');
     });
 
+    $('.formBtn').on('click', function (e) {
+        e.preventDefault();
+
+        var send = true;
+        var form = $(this).data('form');
+
+        $('#' + form + ' input').removeClass('error');
+
+        $('#' + form + ' input').each(function (i, e) {
+
+            if (isEmpty($(e).val())) {
+                var name = $(e).attr('placeholder');
+                $(e).addClass('error');
+                alert('Заполните поле «' + name + '» !');
+                send =  false;
+            }
+
+        });
+
+        if(!validate(form)){
+            send =  false;
+        }
+
+
+
+
+
+        return false;
+    });
 
 
     $('.train-list li:not(.occupied)').click(function () {
@@ -67,22 +94,20 @@ $(document).ready(function () {
                 text = 'места';
             }
 
-            $("[data-disp='"+disp+"']").show();
+            $("[data-disp='" + disp + "']").show();
 
             var selected_position = [];
 
 
-
-
-            $("[data-display='"+disp+"'].selected").each(function(i,e){
+            $("[data-display='" + disp + "'].selected").each(function (i, e) {
                 selected_position.push($(e).text());
             });
 
 
-            console.log(selected_position);
+            //console.log(selected_position);
 
 
-            $("[data-d='"+disp+"']").text(selected_position.join(', ') + ' ' + text);
+            $("[data-d='" + disp + "']").text(selected_position.join(', ') + ' ' + text);
         }
 
 
@@ -97,19 +122,36 @@ $(document).ready(function () {
         $(this).hide();
 
 
-
-
         var item = $(this).data('item');
         var line = $(this).data('line');
 
-        console.log("[data-l='"+line+"']");
+        console.log("[data-l='" + line + "']");
 
-        $("[data-l='"+line+"']").addClass('active');
-        $("[data-inner='"+item+"']").show();
+        $("[data-l='" + line + "']").addClass('active');
+        $("[data-inner='" + item + "']").show();
 
         return true;
     });
 });
+
+
+function validate(form_id) {
+
+
+
+    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+    var address = $('#'+form_id+' input[name="email"]').val();
+
+    if(reg.test(address) == false) {
+        alert('Введите корректный e-mail');
+        $('#'+form_id+' input[name="email"]').addClass('error');
+        return false;
+    }else {
+        $('#'+form_id+' input[name="email"]').removeClass('error');
+        return true;
+    }
+}
 
 
 function removeClass() {
@@ -175,10 +217,17 @@ function orderByDateInput(direction) {
     });
 }
 
+function isEmpty(str) {
+    if (str.trim() == '')
+        return true;
+
+    return false;
+}
+
 function CustomSelect(options) {
     var elem = options.elem;
 
-    elem.onclick = function(event) {
+    elem.onclick = function (event) {
         if (event.target.className == 'title') {
             toggle();
         } else if (event.target.tagName == 'LI') {
@@ -195,9 +244,8 @@ function CustomSelect(options) {
     }
 
 
-
     function setValue(title, value) {
-        elem.querySelector('.title').innerHTML = title+' <span>'+value+'</span>';
+        elem.querySelector('.title').innerHTML = title + ' <span>' + value + '</span>';
 
         var widgetEvent = new CustomEvent('select', {
             bubbles: true,

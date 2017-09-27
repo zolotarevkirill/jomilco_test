@@ -18,7 +18,7 @@
                 </a>
             </div>
             <form action="#" method="#">
-            <div class="search">
+                <div class="search">
 
                     <div id="myInput" class="customselect">
                         <button class="title">Выберите <span></span></button>
@@ -43,7 +43,7 @@
 
                     <input type="submit" value="Найти" class="searchBtn">
 
-            </div>
+                </div>
             </form>
         </div>
 
@@ -125,8 +125,8 @@
                             <span data-d="disp1">18, 20 места</span>
                         </div>
                     </div>
-                    <form action="#" method="#">
-                    <div class="order">
+                    <form action="#" method="#" id="form1">
+                        <div class="order">
 
                             <div class="myColumn">
                                 <div class="formWrapper">
@@ -147,16 +147,15 @@
                             </div>
                             <div class="myColumn">
                                 <div class="formWrapper">
-                                    <input type="text" name="fname" placeholder="Дата рождения">
+                                    <input type="text" name="fname" class="datepicker2" placeholder="Дата рождения">
                                     <div class="myRadio">М</div>
                                     <div class="myRadio">Ж</div>
                                 </div>
                             </div>
 
 
-
-                    </div>
-<!--                        <button>Забронировать</button>-->
+                        </div>
+                        <button data-form="form1" class="formBtn">Забронировать</button>
                     </form>
                 </div>
             </li>
@@ -219,38 +218,47 @@
                     </div>
 
 
-                    <form action="#" method="#">
+                    <form action="#" method="#" id="form2">
                         <div class="order">
 
                             <div class="myColumn">
                                 <div class="formWrapper">
                                     <input type="text" name="phone" placeholder="Телефон">
+
                                     <input type="text" name="email" placeholder="E-mail">
+
                                 </div>
                                 <div class="formWrapper">
                                     <input type="text" name="fname" placeholder="Фамилия">
+
                                     <input type="text" name="name" placeholder="Имя">
-                                    <input type="text" name="name" placeholder="Отчество">
+
+                                    <input type="text" name="sname" placeholder="Отчество">
+
                                 </div>
 
                                 <div class="formWrapper">
-                                    <input type="text" name="fname" placeholder="Гражданство">
-                                    <input type="text" name="name" placeholder="Серия № документа">
-                                    <input type="text" name="name" placeholder="Действует до">
+
+                                    <input type="text" name="city" placeholder="Гражданство">
+
+                                    <input type="text" name="doc" placeholder="Серия № документа">
+
+                                    <input type="text" name="length" placeholder="Действует до">
+
                                 </div>
                             </div>
                             <div class="myColumn">
                                 <div class="formWrapper">
-                                    <input type="text" name="fname" placeholder="Дата рождения">
+                                    <input type="text" name="birthday" class="datepicker2" placeholder="Дата рождения">
+                                    <div class="error" data-name="birthday">2</div>
                                     <div class="myRadio">М</div>
                                     <div class="myRadio">Ж</div>
                                 </div>
                             </div>
 
 
-
                         </div>
-                                                <button class="formBtn">Забронировать</button>
+                        <button class="formBtn" data-form="form2">Забронировать</button>
                     </form>
 
                 </div>

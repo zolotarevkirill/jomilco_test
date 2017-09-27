@@ -231,7 +231,15 @@ header {
               padding-left: 10px;
               font-size: 16px;
               min-width: 220px;
+
+              &.error{
+                border: 1px solid red;
+              }
             }
+
+
+
+
 
             .myRadio{
 
